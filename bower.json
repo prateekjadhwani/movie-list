@@ -1,0 +1,22 @@
+{
+  "name": "movie-list",
+  "authors": [
+    "aaa.aaa.com"
+  ],
+  "description": "Just a movie list element",
+  "main": "movie-list.html",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "^1.8.1",
+    "iron-icons": "PolymerElements/iron-icons#^1.2.0"
+  }
+}

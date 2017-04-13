@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="import" href="bower_components/polymer/polymer.html">
+        <link rel="import" href="movie-list.html">
+        <style>
+            .container {
+                width: 400px;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <template is="dom-bind" id="demo">
+                <movie-list data="[[data]]" on-wishlist-add="handleAdd" heading="[[heading]]"></movie-list>
+            </template>
+        </div>
+
+        <script>
+            demo.heading = 'Opening this week';
+            demo.data = [
+                {
+                    name: 'The Fate of the Furious',
+                    pagelink: 'http://www.imdb.com/title/tt4630562/',
+                    isticketavailable: true,
+                    islimited: false,
+                    id: 1
+                },
+                {
+                    name: 'The Lost City of Z',
+                    pagelink: 'http://www.imdb.com/title/slkgmlskdgml/',
+                    isticketavailable: false,
+                    islimited: false,
+                    id: 2
+                },
+                {
+                    name: 'Norman',
+                    pagelink: 'http://www.imdb.com/title/23423452/',
+                    isticketavailable: false,
+                    islimited: true,
+                    id: 3
+                }
+            ];
+
+            demo.handleAdd = function(e, details) {
+                console.log(details);
+            };
+        </script>
+    </body>
+</html>

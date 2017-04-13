@@ -1,0 +1,61 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="bower_components/iron-icons/iron-icons.html">
+
+<dom-module id="movie-list">
+    <template>
+        <style>
+            :host {
+
+            }
+            .left, .right {
+                display: inline-block;
+            }
+            .left {
+                width: 70%;
+            }
+            .right {
+                width: 25%;
+                text-align: right;
+            }
+            .big {
+                width : 50px;
+                height: 50px;
+                fill: #8a8787;
+                cursor: pointer;
+            }
+            .big:hover {
+                fill: black;
+            }
+
+            h3 {
+                margin: 10px;
+            }
+        </style>
+        <h3>[[heading]]</h3>
+
+        <template is="dom-repeat" items="[[data]]">
+            <div class="left">
+                <iron-icon icon="icons:bookmark" class="big" on-click="handleClick"></iron-icon>
+                <a href$="[[item.pagelink]]">[[item.name]]</a>
+            </div>
+            <div class="right">
+                <template is="dom-if" if="[[item.isticketavailable]]">
+                    <a href="tickets.html">Get Tickets</a>
+                </template>
+                <template is="dom-if" if="[[item.islimited]]">
+                    <span>Limited</span>
+                </template>
+            </div>
+        </template>
+    </template>
+    <script>
+        Polymer({
+            is: 'movie-list',
+
+            handleClick: function(e, details) {
+                this.fire('wishlist-add', e.model.item.id);
+            }
+        });
+    </script>
+</dom-module>
